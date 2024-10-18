@@ -185,7 +185,7 @@ oci_push(
     name = "push_to_dockerhub_amd64",
     image = ":bazel-remote-image",
     remote_tags = ["tmp-amd64"],
-    repository = "buchgr/bazel-remote-cache",
+    repository = "dfinitydev/bazel-remote-cache",
     visibility = ["//visibility:public"],
 )
 
