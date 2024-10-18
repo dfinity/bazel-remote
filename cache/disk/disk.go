@@ -811,7 +811,7 @@ func (c *diskCache) GetValidatedActionResult(ctx context.Context, hash string) (
 		// d was validated in validate.ActionResult but blobs were not checked for existence
 		r, size, err := c.Get(ctx, cache.CAS, d.TreeDigest.Hash, d.TreeDigest.SizeBytes, 0)
 		if r == nil {
-			c.accessLogger.Println("WARNING 2: ActionResult", hash, "has a missing CAS object in OutputDirectories", d.TreeDigest.Hash)
+            c.accessLogger.Println("WARNING 2: ActionResult", hash, "with tree digest hash", d.TreeDigest.Hash, "and tree digest size", d.TreeDigest.SizeBytes, "has a missing CAS object in OutputDirectories", d.TreeDigest.Hash, "error:", err, "found size:", size)
 			return nil, nil, err // aka "not found", or an err if non-nil
 		}
 		if err != nil {
